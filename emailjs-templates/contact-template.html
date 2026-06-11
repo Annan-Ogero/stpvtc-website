@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Message — ST. PVTC</title>
+</head>
+<body style="margin:0;padding:0;background:#F0F2F5;font-family:'Segoe UI',Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F0F2F5;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background:#0B1F3A;border-radius:12px 12px 0 0;padding:36px 40px;text-align:center;">
+              <img src="https://stpvtc.ac.ke/images/badge.png" alt="ST. PVTC Badge" width="64" height="64" style="display:block;margin:0 auto 16px;">
+              <h1 style="margin:0;font-size:22px;font-weight:700;color:#FFFFFF;letter-spacing:0.01em;">St. Paul's Victorious Training College</h1>
+              <p style="margin:6px 0 0;font-size:12px;font-weight:600;color:#E8B84B;letter-spacing:0.12em;text-transform:uppercase;">Where Excellence is Nurtured</p>
+            </td>
+          </tr>
+
+          <!-- GOLD ACCENT BAR -->
+          <tr>
+            <td style="background:#E8B84B;height:4px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- ALERT BANNER — color changes by department -->
+          <tr>
+            <td style="background:#1A5C38;padding:16px 40px;text-align:center;">
+              <p style="margin:0;font-size:13px;font-weight:700;color:#FFFFFF;letter-spacing:0.08em;text-transform:uppercase;">
+                New Website Enquiry — {{department}}
+              </p>
+            </td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="background:#FFFFFF;padding:40px;">
+
+              <p style="margin:0 0 28px;font-size:15px;color:#3A3A4A;line-height:1.7;">
+                A visitor has sent a message through the ST. PVTC contact form. Their details and message are below.
+              </p>
+
+              <!-- SENDER DETAILS -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="border-bottom:2px solid #1A5C38;padding-bottom:8px;">
+                    <p style="margin:0;font-size:11px;font-weight:700;color:#1A5C38;letter-spacing:0.12em;text-transform:uppercase;">Sender Details</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Full Name</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{from_name}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Phone Number</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{phone}}</p>
+                  </td>
+                </tr>
+                <tr><td colspan="3" style="height:8px;"></td></tr>
+                <tr>
+                  <td colspan="3" style="padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Email Address</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{reply_to}}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- MESSAGE -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="border-bottom:2px solid #1A5C38;padding-bottom:8px;">
+                    <p style="margin:0;font-size:11px;font-weight:700;color:#1A5C38;letter-spacing:0.12em;text-transform:uppercase;">Their Message</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
+                <tr>
+                  <td style="background:#F5F7FA;border-left:3px solid #1A5C38;border-radius:0 6px 6px 0;padding:20px 24px;">
+                    <p style="margin:0;font-size:15px;color:#1C1C2E;line-height:1.8;">{{message}}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- QUICK REPLY NOTICE -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="background:rgba(232,184,75,0.12);border:1px solid rgba(232,184,75,0.4);border-radius:8px;padding:16px 20px;">
+                    <p style="margin:0;font-size:13px;color:#6B5200;line-height:1.6;">
+                      <strong>Reminder:</strong> ST. PVTC commits to responding to all enquiries within the same working day. Please reply to <strong>{{from_name}}</strong> at your earliest convenience.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- ACTION BUTTONS -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="padding:8px 0 16px;">
+                    <a href="mailto:{{reply_to}}?subject=Re: Your enquiry to ST. PVTC&body=Dear {{from_name}},%0D%0A%0D%0AThank you for reaching out to St. Paul's Victorious Training College.%0D%0A%0D%0A"
+                       style="display:inline-block;background:#1A5C38;color:#FFFFFF;font-size:14px;font-weight:700;text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.04em;margin-right:12px;">
+                      Reply to {{from_name}}
+                    </a>
+                    <a href="tel:{{phone}}"
+                       style="display:inline-block;background:#0B1F3A;color:#FFFFFF;font-size:14px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:8px;letter-spacing:0.04em;">
+                      Call Them
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- DIVIDER -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 20px;">
+                <tr>
+                  <td style="border-top:1px solid #E2E6EC;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+
+              <p style="margin:0;font-size:12px;color:#8A8FA0;line-height:1.6;">
+                Department routed to: <strong>{{department}}</strong>. Sent via the ST. PVTC website contact form.
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background:#0B1F3A;border-radius:0 0 12px 12px;padding:28px 40px;text-align:center;">
+              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#FFFFFF;">St. Paul's Victorious Training College</p>
+              <p style="margin:0 0 12px;font-size:12px;color:rgba(255,255,255,0.5);">P.O Box 9516-40100, Kisumu, Kenya &nbsp;|&nbsp; 0708 599 134 &nbsp;|&nbsp; st.paulvictoriousttc@gmail.com</p>
+              <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.3);">This is an automated notification from the ST. PVTC contact system.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

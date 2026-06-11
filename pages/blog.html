@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The ST. PVTC Blog — insights on ICT skills, web development, digital careers in Kenya, and news from St. Paul's Victorious Training College in Kisumu.">
+  <meta name="keywords" content="ICT blog Kenya, web development tips Kisumu, digital skills Africa, computer training blog, frontend development Kenya students">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stpvtc.ac.ke/pages/blog.html">
+  <title>Blog | St. Paul's Victorious Training College</title>
+  <link rel="icon" type="image/png" href="../images/badge.png">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
+    .blog-featured { margin-bottom: 56px; }
+    .blog-featured__card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--card-shadow); background: var(--white); transition: var(--transition); }
+    .blog-featured__card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
+    .blog-featured__img { aspect-ratio: auto; min-height: 320px; object-fit: cover; width: 100%; }
+    .blog-featured__body { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+    .blog-featured__label { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--green); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .blog-featured__title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.25; }
+    .blog-featured__title a { color: inherit; transition: color var(--transition); }
+    .blog-featured__title a:hover { color: var(--green); }
+    .blog-featured__excerpt { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+    .blog-featured__meta { display: flex; align-items: center; gap: 16px; font-size: 0.82rem; color: var(--text-muted); }
+    .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .blog-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--card-shadow); transition: var(--transition); }
+    .blog-card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
+    .blog-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .blog-card__body { padding: 22px; }
+    .blog-card__cat { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 8px; display: block; }
+    .blog-card__title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .blog-card__title a { color: inherit; }
+    .blog-card__title a:hover { color: var(--green); }
+    .blog-card__excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+    .blog-card__meta { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .blog-sidebar__section { margin-bottom: 36px; }
+    .blog-sidebar__title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--green); }
+    .blog-sidebar__cat-list { display: flex; flex-direction: column; gap: 8px; }
+    .blog-sidebar__cat-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: var(--radius); border: 1px solid var(--border); font-size: 0.88rem; color: var(--text); cursor: pointer; transition: var(--transition); }
+    .blog-sidebar__cat-item:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .blog-sidebar__cat-count { font-family: var(--font-mono); font-size: 0.75rem; background: var(--off-white); color: var(--text-muted); padding: 2px 8px; border-radius: 10px; }
+    .blog-sidebar__cat-item:hover .blog-sidebar__cat-count { background: rgba(255,255,255,0.2); color: var(--white); }
+    .blog-sidebar__recent { display: flex; flex-direction: column; gap: 14px; }
+    .blog-sidebar__recent-item { display: flex; gap: 12px; }
+    .blog-sidebar__recent-img { width: 60px; height: 50px; border-radius: 6px; object-fit: cover; flex-shrink: 0; }
+    .blog-sidebar__recent-title { font-size: 0.85rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .blog-sidebar__recent-title a { color: inherit; }
+    .blog-sidebar__recent-title a:hover { color: var(--green); }
+    .blog-sidebar__recent-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+    @media(max-width:1024px){ .blog-layout{grid-template-columns:1fr;} .blog-featured__card{grid-template-columns:1fr;} .blog-featured__img{min-height:220px;} }
+    @media(max-width:768px){ .blog-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow page-hero__eyebrow">Insights &amp; Updates</span>
+    <h1 class="page-hero__title">The ST. PVTC Blog</h1>
+    <p class="page-hero__sub">Tips, career guides, student stories and digital skills insights from the heart of Kisumu.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span aria-current="page">Blog</span>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="blog-layout">
+      <div>
+
+        <!-- Featured Post -->
+        <div class="blog-featured" aria-label="Featured post">
+          <span class="eyebrow">Featured</span>
+          <article class="blog-featured__card">
+            <img src="../images/blog-featured.jpg" alt="Why learning computer basics before a CS degree matters" class="blog-featured__img" loading="lazy">
+            <div class="blog-featured__body">
+              <p class="blog-featured__label">
+                <span class="card__tag card__tag--green" style="margin:0;">Education</span>
+                June 2025
+              </p>
+              <h2 class="blog-featured__title"><a href="blog-post.html">Why High School Graduates Must Learn Computer Basics Before University</a></h2>
+              <p class="blog-featured__excerpt">Every year, thousands of Kenyan students enter Computer Science and IT degrees without ever having written a single line of code — or even opened a terminal. Here is why the foundation matters more than ever.</p>
+              <div class="blog-featured__meta">
+                <span>By ST. PVTC Faculty</span>
+                <span>8 min read</span>
+                <a href="blog-post.html" class="btn btn-ghost" style="padding:8px 18px;font-size:0.82rem;">Read Article</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- All Posts -->
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:24px;">All Posts</h2>
+        <div class="blog-grid">
+
+          <article class="blog-card">
+            <img src="../images/blog-1.jpg" alt="What is HTML and why is it the foundation of the web" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Web Development</span>
+              <h3 class="blog-card__title"><a href="#">What is HTML and Why Is It the Foundation of the Web?</a></h3>
+              <p class="blog-card__excerpt">Before frameworks, before JavaScript, there is HTML. Understanding it properly is the first step every developer must take.</p>
+              <div class="blog-card__meta"><span>May 2025</span><span>5 min read</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog-2.jpg" alt="Top 5 digital skills every Kenyan job seeker needs in 2025" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Career</span>
+              <h3 class="blog-card__title"><a href="#">Top 5 Digital Skills Every Kenyan Job Seeker Needs in 2025</a></h3>
+              <p class="blog-card__excerpt">The job market has changed. Here are the five computer skills employers in Kenya are actively looking for this year.</p>
+              <div class="blog-card__meta"><span>May 2025</span><span>6 min read</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog-3.jpg" alt="From KCSE to developer: one student's journey at ST. PVTC" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Student Story</span>
+              <h3 class="blog-card__title"><a href="#">From KCSE Results to Building My First Website — A Student's Journey</a></h3>
+              <p class="blog-card__excerpt">Faith Adhiambo describes how three months at ST. PVTC gave her the confidence and skills she thought only universities could teach.</p>
+              <div class="blog-card__meta"><span>April 2025</span><span>7 min read</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog-4.jpg" alt="What is Git and why every developer needs to know it" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Web Development</span>
+              <h3 class="blog-card__title"><a href="#">What is Git and Why Does Every Developer Need to Know It?</a></h3>
+              <p class="blog-card__excerpt">Git is not optional for professional developers. Here is a simple explanation of version control and why we teach it in Month 3.</p>
+              <div class="blog-card__meta"><span>April 2025</span><span>5 min read</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog-5.jpg" alt="Microsoft Excel tips for office work in Kenya" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">ICT Skills</span>
+              <h3 class="blog-card__title"><a href="#">10 Microsoft Excel Skills That Will Get You Hired in Any Kenyan Office</a></h3>
+              <p class="blog-card__excerpt">Excel remains the most requested computer skill by Kenyan employers. These are the 10 functions you must know before your first job interview.</p>
+              <div class="blog-card__meta"><span>March 2025</span><span>9 min read</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog-6.jpg" alt="What is responsive web design and why it matters" class="blog-card__img" loading="lazy">
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Web Development</span>
+              <h3 class="blog-card__title"><a href="#">What is Responsive Web Design and Why Does Every Website Need It?</a></h3>
+              <p class="blog-card__excerpt">Over 70% of Kenyan internet users browse on mobile. Here is why responsive design is no longer optional and how we teach it at ST. PVTC.</p>
+              <div class="blog-card__meta"><span>March 2025</span><span>4 min read</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside aria-label="Blog sidebar">
+        <div class="blog-sidebar__section">
+          <h2 class="blog-sidebar__title">Categories</h2>
+          <div class="blog-sidebar__cat-list">
+            <div class="blog-sidebar__cat-item">Web Development <span class="blog-sidebar__cat-count">4</span></div>
+            <div class="blog-sidebar__cat-item">ICT Skills <span class="blog-sidebar__cat-count">3</span></div>
+            <div class="blog-sidebar__cat-item">Career <span class="blog-sidebar__cat-count">2</span></div>
+            <div class="blog-sidebar__cat-item">Student Stories <span class="blog-sidebar__cat-count">2</span></div>
+            <div class="blog-sidebar__cat-item">College News <span class="blog-sidebar__cat-count">1</span></div>
+          </div>
+        </div>
+        <div class="blog-sidebar__section">
+          <h2 class="blog-sidebar__title">Recent Posts</h2>
+          <div class="blog-sidebar__recent">
+            <div class="blog-sidebar__recent-item">
+              <img src="../images/blog-featured.jpg" alt="" class="blog-sidebar__recent-img" loading="lazy" aria-hidden="true">
+              <div>
+                <p class="blog-sidebar__recent-title"><a href="#">Why KCSE Graduates Must Learn Basics Before University</a></p>
+                <p class="blog-sidebar__recent-date">June 2025</p>
+              </div>
+            </div>
+            <div class="blog-sidebar__recent-item">
+              <img src="../images/blog-1.jpg" alt="" class="blog-sidebar__recent-img" loading="lazy" aria-hidden="true">
+              <div>
+                <p class="blog-sidebar__recent-title"><a href="#">What is HTML and Why Is It the Foundation of the Web?</a></p>
+                <p class="blog-sidebar__recent-date">May 2025</p>
+              </div>
+            </div>
+            <div class="blog-sidebar__recent-item">
+              <img src="../images/blog-2.jpg" alt="" class="blog-sidebar__recent-img" loading="lazy" aria-hidden="true">
+              <div>
+                <p class="blog-sidebar__recent-title"><a href="#">Top 5 Digital Skills Every Kenyan Job Seeker Needs</a></p>
+                <p class="blog-sidebar__recent-date">May 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-sidebar__section">
+          <div style="background:var(--navy);border-radius:var(--radius-lg);padding:24px;text-align:center;">
+            <h3 style="font-family:var(--font-display);color:var(--white);font-size:1rem;margin-bottom:8px;">Ready to Start Learning?</h3>
+            <p style="font-size:0.83rem;color:rgba(255,255,255,0.65);margin-bottom:16px;">Applications open for July 2025 intake.</p>
+            <a href="apply.html" class="btn btn-gold" style="width:100%;justify-content:center;">Apply Now</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/global.js"></script>
+</body>
+</html>

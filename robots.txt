@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /pages/404.html
+
+Sitemap: https://stpvtc.ac.ke/sitemap.xml

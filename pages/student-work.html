@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student projects and portfolio work from St. Paul's Victorious Training College. See real websites built by our frontend web development graduates.">
+  <meta name="keywords" content="student projects Kisumu web development, PVTC student portfolio, frontend development student work Kenya, web development certificate projects">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stpvtc.ac.ke/pages/student-work.html">
+  <title>Student Work | St. Paul's Victorious Training College</title>
+  <link rel="icon" type="image/png" href="../images/badge.png">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .filter-btn { padding: 9px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1.5px solid var(--border); color: var(--text-muted); cursor: pointer; transition: var(--transition); background: var(--white); }
+    .filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+    .project-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--card-shadow); transition: var(--transition); }
+    .project-card:hover { box-shadow: var(--card-hover); transform: translateY(-4px); }
+    .project-card__img-wrap { position: relative; overflow: hidden; aspect-ratio: 16/9; background: var(--off-white); }
+    .project-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .project-card:hover .project-card__img { transform: scale(1.04); }
+    .project-card__overlay { position: absolute; inset: 0; background: rgba(11,31,58,0.7); display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0; transition: opacity 0.3s ease; }
+    .project-card:hover .project-card__overlay { opacity: 1; }
+    .project-card__body { padding: 22px; }
+    .project-card__tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .project-card__title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .project-card__student { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .project-card__student svg { stroke: var(--green); }
+    .project-card__desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
+    .project-card__stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .stack-chip { font-family: var(--font-mono); font-size: 0.72rem; background: var(--off-white); color: var(--navy); padding: 3px 10px; border-radius: 10px; font-weight: 600; }
+    .empty-state { text-align: center; padding: 80px 24px; grid-column: 1/-1; }
+    .empty-state svg { stroke: var(--border); margin: 0 auto 16px; }
+    .empty-state p { color: var(--text-muted); }
+    .cta-banner { background: linear-gradient(135deg, var(--navy), var(--green)); border-radius: var(--radius-lg); padding: 48px; text-align: center; margin-top: 64px; }
+    .cta-banner h2 { font-family: var(--font-display); font-size: clamp(1.4rem,3vw,2rem); color: var(--white); margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 28px; font-size:0.95rem; }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow page-hero__eyebrow">What Our Students Build</span>
+    <h1 class="page-hero__title">Student Work</h1>
+    <p class="page-hero__sub">Real projects built by real students at ST. PVTC. Every project here was created during coursework and deployed live.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span aria-current="page">Student Work</span>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+
+    <div class="filter-bar" role="group" aria-label="Filter projects by type">
+      <button class="filter-btn active" onclick="filterProjects('all', this)" aria-pressed="true">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('html-css', this)" aria-pressed="false">HTML &amp; CSS</button>
+      <button class="filter-btn" onclick="filterProjects('javascript', this)" aria-pressed="false">JavaScript</button>
+      <button class="filter-btn" onclick="filterProjects('portfolio', this)" aria-pressed="false">Portfolio Sites</button>
+      <button class="filter-btn" onclick="filterProjects('capstone', this)" aria-pressed="false">Capstone Projects</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <article class="project-card" data-category="html-css">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-1.jpg" alt="Responsive product landing page built by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Responsive Landing Page">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Responsive Landing Page">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--green">Month 1 Milestone</span>
+          </div>
+          <h2 class="project-card__title">Responsive Product Landing Page</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Faith Adhiambo — Cohort 1, 2025</p>
+          <p class="project-card__desc">A mobile-first product landing page built using semantic HTML5 and CSS Flexbox. Fully responsive across desktop, tablet and mobile screen sizes.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">Flexbox</span>
+            <span class="stack-chip">Media Queries</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="javascript">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-2.jpg" alt="JavaScript quiz app built by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Interactive Quiz App">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Interactive Quiz App">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--gold">Month 2 Milestone</span>
+          </div>
+          <h2 class="project-card__title">Interactive General Knowledge Quiz</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Brian Omondi — Cohort 1, 2025</p>
+          <p class="project-card__desc">A 10-question quiz app with score tracking, timer and randomised answer order. Built entirely in vanilla JavaScript using DOM manipulation.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">DOM API</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="capstone portfolio">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-3.jpg" alt="Personal portfolio website built by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Personal Portfolio Website">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Personal Portfolio Website">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--navy">Capstone Project</span>
+          </div>
+          <h2 class="project-card__title">Personal Developer Portfolio</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Cynthia Wanjiku — Cohort 1, 2025</p>
+          <p class="project-card__desc">A four-page personal portfolio website deployed on GitHub Pages. Features a projects section, about page and a working contact form. Built in 3 weeks during Month 3.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">Git</span>
+            <span class="stack-chip">GitHub Pages</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="javascript html-css">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-4.jpg" alt="JavaScript calculator app built by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Calculator App">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Calculator App">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--gold">Month 2 Milestone</span>
+          </div>
+          <h2 class="project-card__title">Scientific Calculator App</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Kevin Otieno — Cohort 1, 2025</p>
+          <p class="project-card__desc">A fully functional calculator supporting basic arithmetic and keyboard input. Styled with CSS Grid to replicate a real device interface.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS Grid</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">Keyboard Events</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="html-css">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-5.jpg" alt="Restaurant website built by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Restaurant Website">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Restaurant Website">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--green">Month 1 Milestone</span>
+          </div>
+          <h2 class="project-card__title">Local Restaurant Landing Page</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Grace Akinyi — Cohort 1, 2025</p>
+          <p class="project-card__desc">A responsive landing page designed for a local Kisumu restaurant — featuring a menu section, image gallery and a contact form using pure HTML and CSS.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">Flexbox</span>
+            <span class="stack-chip">CSS Grid</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-category="capstone portfolio">
+        <div class="project-card__img-wrap">
+          <img src="../images/project-6.jpg" alt="Business website capstone project by ST. PVTC student" class="project-card__img" loading="lazy">
+          <div class="project-card__overlay">
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View live demo of Business Website Capstone">Live Demo</a>
+            <a href="#" class="btn btn-outline" style="padding:9px 18px;font-size:0.82rem;" aria-label="View GitHub repository for Business Website Capstone">GitHub</a>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__tags">
+            <span class="card__tag card__tag--navy">Capstone Project</span>
+          </div>
+          <h2 class="project-card__title">5-Page Business Website</h2>
+          <p class="project-card__student"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> James Mwangi — Cohort 1, 2025</p>
+          <p class="project-card__desc">A full multi-page business website with Home, About, Services, Portfolio and Contact pages — all deployed via GitHub Pages with a custom domain.</p>
+          <div class="project-card__stack">
+            <span class="stack-chip">HTML5</span>
+            <span class="stack-chip">CSS3</span>
+            <span class="stack-chip">JavaScript</span>
+            <span class="stack-chip">GitHub</span>
+            <span class="stack-chip">GitHub Pages</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="cta-banner">
+      <h2>Your Project Could Be Here</h2>
+      <p>Every student in our Frontend Web Development Foundation programme graduates with real projects deployed on the internet. This could be your work next.</p>
+      <a href="apply.html" class="btn btn-gold">Apply for July 2025</a>
+    </div>
+
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/global.js"></script>
+<script>
+  function filterProjects(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cats = card.dataset.category || '';
+      card.style.display = (category === 'all' || cats.includes(category)) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

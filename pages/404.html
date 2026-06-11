@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — St. Paul's Victorious Training College">
+  <meta name="robots" content="noindex">
+  <title>404 — Page Not Found | St. Paul's Victorious Training College</title>
+  <link rel="icon" type="image/png" href="../images/badge.png">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+    }
+    .error-page__body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      text-align: center;
+    }
+    .error-page__inner { max-width: 560px; }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+      opacity: 0.85;
+    }
+    .error-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin: 16px auto 24px;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .error-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .error-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .error-links-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .error-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .error-links a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    .error-links a:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+    .terminal-block {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 0 auto 36px;
+      max-width: 380px;
+      text-align: left;
+    }
+    .terminal-line {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+    }
+    .terminal-line .prompt { color: var(--green); margin-right: 8px; }
+    .terminal-line .cmd { color: var(--white); }
+    .terminal-line .err { color: var(--crimson); }
+    .terminal-line .ok { color: var(--gold); }
+  </style>
+</head>
+<body class="error-page">
+<div id="nav-placeholder"></div>
+
+<div class="error-page__body">
+  <div class="error-page__inner">
+
+    <div class="error-code" aria-hidden="true">404</div>
+    <div class="error-divider" aria-hidden="true"></div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-desc">The page you are looking for does not exist or may have been moved. Let us get you back on track.</p>
+
+    <div class="terminal-block" aria-hidden="true">
+      <div class="terminal-line"><span class="prompt">$</span><span class="cmd">GET /this-page</span></div>
+      <div class="terminal-line"><span class="err">Error 404: Not Found</span></div>
+      <div class="terminal-line"><span class="prompt">$</span><span class="cmd">navigate --home</span></div>
+      <div class="terminal-line"><span class="ok">Redirecting to safety...</span></div>
+    </div>
+
+    <div class="error-actions">
+      <a href="../index.html" class="btn btn-gold">Go to Homepage</a>
+      <a href="courses.html" class="btn btn-outline">Browse Courses</a>
+    </div>
+
+    <p class="error-links-title">Or go directly to</p>
+    <nav class="error-links" aria-label="Helpful links">
+      <a href="apply.html">Apply Now</a>
+      <a href="courses.html">Courses</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="student-work.html">Student Work</a>
+    </nav>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/global.js"></script>
+</body>
+</html>

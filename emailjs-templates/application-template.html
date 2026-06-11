@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Application — ST. PVTC</title>
+</head>
+<body style="margin:0;padding:0;background:#F0F2F5;font-family:'Segoe UI',Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F0F2F5;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background:#0B1F3A;border-radius:12px 12px 0 0;padding:36px 40px;text-align:center;">
+              <img src="https://stpvtc.ac.ke/images/badge.png" alt="ST. PVTC Badge" width="64" height="64" style="display:block;margin:0 auto 16px;">
+              <h1 style="margin:0;font-size:22px;font-weight:700;color:#FFFFFF;letter-spacing:0.01em;">St. Paul's Victorious Training College</h1>
+              <p style="margin:6px 0 0;font-size:12px;font-weight:600;color:#E8B84B;letter-spacing:0.12em;text-transform:uppercase;">Where Excellence is Nurtured</p>
+            </td>
+          </tr>
+
+          <!-- GOLD ACCENT BAR -->
+          <tr>
+            <td style="background:#E8B84B;height:4px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- ALERT BANNER -->
+          <tr>
+            <td style="background:#1A5C38;padding:16px 40px;text-align:center;">
+              <p style="margin:0;font-size:13px;font-weight:700;color:#FFFFFF;letter-spacing:0.08em;text-transform:uppercase;">
+                New Course Application Received
+              </p>
+            </td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="background:#FFFFFF;padding:40px;">
+
+              <p style="margin:0 0 24px;font-size:15px;color:#3A3A4A;line-height:1.7;">
+                A new application has been submitted through the ST. PVTC website. Review the details below and follow up with the applicant within <strong>24 hours</strong>.
+              </p>
+
+              <!-- PROGRAMME BOX -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="background:#0B1F3A;border-radius:8px;padding:20px 24px;">
+                    <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#E8B84B;letter-spacing:0.12em;text-transform:uppercase;">Selected Programme</p>
+                    <p style="margin:0;font-size:18px;font-weight:700;color:#FFFFFF;">{{selected_programme}}</p>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:14px;">
+                      <tr>
+                        <td style="width:50%;">
+                          <p style="margin:0 0 2px;font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;">Preferred Intake</p>
+                          <p style="margin:0;font-size:13px;font-weight:600;color:#FFFFFF;">{{preferred_intake}}</p>
+                        </td>
+                        <td style="width:50%;">
+                          <p style="margin:0 0 2px;font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;">Study Mode</p>
+                          <p style="margin:0;font-size:13px;font-weight:600;color:#FFFFFF;">{{study_mode}}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- SECTION HEADING -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="border-bottom:2px solid #1A5C38;padding-bottom:8px;">
+                    <p style="margin:0;font-size:11px;font-weight:700;color:#1A5C38;letter-spacing:0.12em;text-transform:uppercase;">Applicant Details</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- DETAILS GRID -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Full Name</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{first_name}} {{last_name}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Date of Birth</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{date_of_birth}}</p>
+                  </td>
+                </tr>
+                <tr><td colspan="3" style="height:8px;"></td></tr>
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Email Address</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{email}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Phone Number</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{phone}}</p>
+                  </td>
+                </tr>
+                <tr><td colspan="3" style="height:8px;"></td></tr>
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Location</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{location}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Gender</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{gender}}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- SECTION HEADING -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="border-bottom:2px solid #1A5C38;padding-bottom:8px;">
+                    <p style="margin:0;font-size:11px;font-weight:700;color:#1A5C38;letter-spacing:0.12em;text-transform:uppercase;">Educational Background</p>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Highest Education</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{highest_education}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Last School Attended</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{last_school}}</p>
+                  </td>
+                </tr>
+                <tr><td colspan="3" style="height:8px;"></td></tr>
+                <tr>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">Computer Experience</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{computer_experience}}</p>
+                  </td>
+                  <td style="width:4px;">&nbsp;</td>
+                  <td style="width:50%;padding:10px 12px;background:#F5F7FA;border-radius:6px;vertical-align:top;">
+                    <p style="margin:0 0 3px;font-size:11px;color:#8A8FA0;text-transform:uppercase;letter-spacing:0.08em;">How They Heard About Us</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#0B1F3A;">{{how_heard}}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- MOTIVATION -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
+                <tr>
+                  <td style="border-bottom:2px solid #1A5C38;padding-bottom:8px;margin-bottom:16px;">
+                    <p style="margin:0;font-size:11px;font-weight:700;color:#1A5C38;letter-spacing:0.12em;text-transform:uppercase;">Motivation Statement</p>
+                  </td>
+                </tr>
+                <tr><td style="height:12px;"></td></tr>
+                <tr>
+                  <td style="background:#F5F7FA;border-left:3px solid #1A5C38;border-radius:0 6px 6px 0;padding:16px 20px;">
+                    <p style="margin:0;font-size:14px;color:#3A3A4A;line-height:1.75;font-style:italic;">{{motivation}}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- ACTION BUTTON -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="padding:8px 0 16px;">
+                    <a href="mailto:{{email}}" style="display:inline-block;background:#1A5C38;color:#FFFFFF;font-size:14px;font-weight:700;text-decoration:none;padding:14px 36px;border-radius:8px;letter-spacing:0.04em;">
+                      Reply to Applicant
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- DIVIDER -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:24px 0 20px;">
+                <tr>
+                  <td style="border-top:1px solid #E2E6EC;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+
+              <p style="margin:0;font-size:12px;color:#8A8FA0;line-height:1.6;">
+                Application submitted on <strong>{{application_date}}</strong> via the ST. PVTC website application form.
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background:#0B1F3A;border-radius:0 0 12px 12px;padding:28px 40px;text-align:center;">
+              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#FFFFFF;">St. Paul's Victorious Training College</p>
+              <p style="margin:0 0 12px;font-size:12px;color:rgba(255,255,255,0.5);">P.O Box 9516-40100, Kisumu, Kenya &nbsp;|&nbsp; 0708 599 134 &nbsp;|&nbsp; st.paulvictoriousttc@gmail.com</p>
+              <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.3);">This is an automated notification from the ST. PVTC admissions system.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

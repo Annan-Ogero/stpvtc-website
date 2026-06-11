@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to St. Paul's Victorious Training College, Kisumu. Enrol in our ICT Packages or Frontend Web Development Foundation programme today.">
+  <meta name="keywords" content="apply St Paul's Victorious Training College, enrol ICT course Kisumu, web development programme application Kenya">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stpvtc.ac.ke/pages/apply.html">
+  <title>Apply Now | St. Paul's Victorious Training College</title>
+  <link rel="icon" type="image/png" href="../images/badge.png">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .apply-layout { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+    .steps-nav { display: flex; gap: 0; margin-bottom: 40px; counter-reset: step; }
+    .step-indicator {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-align: center;
+      position: relative;
+    }
+    .step-indicator::after {
+      content: ''; position: absolute; top: 18px; left: 50%; width: 100%; height: 2px;
+      background: var(--border); z-index: 0;
+    }
+    .step-indicator:last-child::after { display: none; }
+    .step-indicator__dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--off-white); border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+      color: var(--text-muted); z-index: 1; transition: var(--transition);
+    }
+    .step-indicator.active .step-indicator__dot { background: var(--green); border-color: var(--green); color: var(--white); }
+    .step-indicator.done .step-indicator__dot { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .step-indicator.active { color: var(--green); }
+    .step-indicator.done { color: var(--navy); }
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .step-heading { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .step-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 28px; }
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .course-radio-group { display: flex; flex-direction: column; gap: 14px; }
+    .course-radio {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px; border: 2px solid var(--border); border-radius: var(--radius);
+      cursor: pointer; transition: var(--transition);
+    }
+    .course-radio:hover { border-color: var(--green); }
+    .course-radio input[type="radio"] { margin-top: 3px; accent-color: var(--green); width: 18px; height: 18px; flex-shrink: 0; }
+    .course-radio.selected { border-color: var(--green); background: rgba(26,92,56,0.04); }
+    .course-radio__title { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .course-radio__sub { font-size: 0.82rem; color: var(--text-muted); }
+    .sidebar-info { background: var(--navy); border-radius: var(--radius-lg); padding: 32px; position: sticky; top: 100px; }
+    .sidebar-info h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--white); margin-bottom: 20px; }
+    .sidebar-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+    .sidebar-item svg { stroke: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .sidebar-item__label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+    .sidebar-item__value { font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+    .success-state { text-align: center; padding: 60px 24px; display: none; }
+    .success-state__icon { width: 72px; height: 72px; border-radius: 50%; background: rgba(26,92,56,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .success-state__icon svg { stroke: var(--green); }
+    .success-state h2 { font-family: var(--font-display); font-size: 2rem; color: var(--navy); margin-bottom: 12px; }
+    .success-state p { color: var(--text-muted); font-size: 1rem; max-width: 480px; margin: 0 auto 28px; }
+    @media(max-width:1024px){ .apply-layout{grid-template-columns:1fr;} .sidebar-info{position:static;} }
+    @media(max-width:600px){ .steps-nav{gap:0;} .step-indicator__dot{width:28px;height:28px;font-size:0.75rem;} .step-indicator{font-size:0.7rem;} }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow page-hero__eyebrow">Join ST. PVTC</span>
+    <h1 class="page-hero__title">Apply Now</h1>
+    <p class="page-hero__sub">Complete the form below and our admissions team will contact you within 24 hours.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a><span>/</span><span aria-current="page">Apply</span>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="apply-layout">
+
+      <div>
+        <!-- Steps navigation -->
+        <div class="steps-nav" role="list" aria-label="Application steps">
+          <div class="step-indicator active" id="ind-1" role="listitem">
+            <div class="step-indicator__dot">1</div>
+            <span>Programme</span>
+          </div>
+          <div class="step-indicator" id="ind-2" role="listitem">
+            <div class="step-indicator__dot">2</div>
+            <span>Personal Info</span>
+          </div>
+          <div class="step-indicator" id="ind-3" role="listitem">
+            <div class="step-indicator__dot">3</div>
+            <span>Education</span>
+          </div>
+          <div class="step-indicator" id="ind-4" role="listitem">
+            <div class="step-indicator__dot">4</div>
+            <span>Review</span>
+          </div>
+        </div>
+
+        <form id="applyForm" novalidate>
+          <!-- Hidden fields for EmailJS -->
+          <input type="hidden" name="application_date" id="applicationDate">
+          <input type="hidden" name="form_source" value="ST. PVTC Website Application Form">
+
+          <!-- Step 1: Programme -->
+          <div class="form-step active" id="step-1">
+            <h2 class="step-heading">Choose Your Programme</h2>
+            <p class="step-sub">Select the course you want to enrol in.</p>
+            <div class="course-radio-group" role="radiogroup" aria-labelledby="courseLabel">
+              <label class="course-radio" id="optICT">
+                <input type="radio" name="selected_programme" value="ICT Packages Certificate" required>
+                <div>
+                  <div class="course-radio__title">ICT Packages Certificate</div>
+                  <div class="course-radio__sub">3–6 months · Microsoft Office, Internet, PC Maintenance, Graphic Design and more · No prerequisites</div>
+                </div>
+              </label>
+              <label class="course-radio" id="optDev">
+                <input type="radio" name="selected_programme" value="Frontend Web Development Foundation">
+                <div>
+                  <div class="course-radio__title">Frontend Web Development Foundation</div>
+                  <div class="course-radio__sub">3 months · HTML, CSS, JavaScript, Git &amp; GitHub · Prerequisite: ICT Packages or equivalent</div>
+                </div>
+              </label>
+            </div>
+            <div class="form-group" style="margin-top:24px;">
+              <label class="form-label" for="intakeMonth">Preferred Intake</label>
+              <select class="form-select" id="intakeMonth" name="preferred_intake" required>
+                <option value="">Select intake...</option>
+                <option value="July 2025">July 2025</option>
+                <option value="October 2025">October 2025</option>
+                <option value="January 2026">January 2026</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="studyMode">Study Mode</label>
+              <select class="form-select" id="studyMode" name="study_mode" required>
+                <option value="">Select mode...</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <span></span>
+              <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next: Personal Info</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Personal Info -->
+          <div class="form-step" id="step-2">
+            <h2 class="step-heading">Personal Information</h2>
+            <p class="step-sub">Tell us a bit about yourself.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="firstName">First Name <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="firstName" name="first_name" placeholder="e.g. Faith" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Last Name <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="lastName" name="last_name" placeholder="e.g. Adhiambo" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="dob">Date of Birth</label>
+                <input class="form-input" type="date" id="dob" name="date_of_birth" autocomplete="bday">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="gender">Gender</label>
+                <select class="form-select" id="gender" name="gender">
+                  <option value="">Prefer not to say</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="location">Town / Area of Residence <span aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="location" name="location" placeholder="e.g. Kisumu, Kondele" required>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-ghost" onclick="prevStep(1)">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next: Education</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Education -->
+          <div class="form-step" id="step-3">
+            <h2 class="step-heading">Educational Background</h2>
+            <p class="step-sub">This helps us place you in the right programme and level.</p>
+            <div class="form-group">
+              <label class="form-label" for="highestEdu">Highest Level of Education <span aria-hidden="true">*</span></label>
+              <select class="form-select" id="highestEdu" name="highest_education" required>
+                <option value="">Select...</option>
+                <option value="Primary (KCPE)">Primary (KCPE)</option>
+                <option value="Secondary (KCSE)">Secondary (KCSE)</option>
+                <option value="Certificate">Certificate</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Degree or above">Degree or above</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastSchool">Last School or Institution Attended</label>
+              <input class="form-input" type="text" id="lastSchool" name="last_school" placeholder="e.g. Kisumu Boys High School">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="computerExp">Computer Experience Level <span aria-hidden="true">*</span></label>
+              <select class="form-select" id="computerExp" name="computer_experience" required>
+                <option value="">Select...</option>
+                <option value="None — total beginner">None — total beginner</option>
+                <option value="Basic — can use a mouse and keyboard">Basic — can use a mouse and keyboard</option>
+                <option value="Intermediate — familiar with MS Office">Intermediate — familiar with MS Office</option>
+                <option value="Advanced — comfortable with computers">Advanced — comfortable with computers</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="motivation">Why do you want to join ST. PVTC?</label>
+              <textarea class="form-textarea" id="motivation" name="motivation" placeholder="Tell us briefly what motivated you to apply and what you hope to achieve..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="howHeard">How did you hear about us?</label>
+              <select class="form-select" id="howHeard" name="how_heard">
+                <option value="">Select...</option>
+                <option value="Word of mouth / friend or family">Word of mouth / friend or family</option>
+                <option value="Social media">Social media</option>
+                <option value="Google search">Google search</option>
+                <option value="Walked past the centre">Walked past the centre</option>
+                <option value="Referral from a graduate">Referral from a graduate</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-ghost" onclick="prevStep(2)">Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(4)">Review Application</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Review -->
+          <div class="form-step" id="step-4">
+            <h2 class="step-heading">Review Your Application</h2>
+            <p class="step-sub">Please confirm your details before submitting.</p>
+            <div id="reviewSummary" style="background:var(--off-white);border-radius:var(--radius-lg);padding:28px;margin-bottom:24px;"></div>
+            <div class="form-group">
+              <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+                <input type="checkbox" name="consent" id="consent" required style="margin-top:3px;accent-color:var(--green);width:18px;height:18px;flex-shrink:0;">
+                <span style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;">I confirm that the information provided is accurate and I consent to ST. PVTC contacting me regarding my application.</span>
+              </label>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-ghost" onclick="prevStep(3)">Back</button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Success -->
+        <div class="success-state" id="successState">
+          <div class="success-state__icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Application Received</h2>
+          <p>Thank you for applying to ST. PVTC. Our admissions team will review your application and contact you within 24 hours via phone or email.</p>
+          <a href="../index.html" class="btn btn-primary">Back to Home</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar-info" aria-label="Application information">
+        <h3>Application Info</h3>
+        <div class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <div class="sidebar-item__label">Response Time</div>
+            <div class="sidebar-item__value">Within 24 hours of submission</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.89-1.89a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <div class="sidebar-item__label">Admissions Phone</div>
+            <div class="sidebar-item__value">0708 599 134</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <div class="sidebar-item__label">Email</div>
+            <div class="sidebar-item__value">st.paulvictoriousttc@gmail.com</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="sidebar-item__label">Location</div>
+            <div class="sidebar-item__value">P.O Box 9516-40100, Kisumu, Kenya</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:8px;">
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">Applications are free. No commitment required at this stage — we will contact you to discuss next steps and fees.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="../js/global.js"></script>
+<script>
+  // Replace with your EmailJS public key
+  emailjs.init('LltEk7lxSNtj73eKU');
+
+  let currentStep = 1;
+  const TOTAL_STEPS = 4;
+
+  // Pre-fill course from URL param
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const course = params.get('course');
+    if (course === 'frontend-dev') {
+      document.querySelector('input[value="Frontend Web Development Foundation"]').checked = true;
+      document.getElementById('optDev').classList.add('selected');
+    } else if (course === 'ict-packages') {
+      document.querySelector('input[value="ICT Packages Certificate"]').checked = true;
+      document.getElementById('optICT').classList.add('selected');
+    }
+
+    document.getElementById('applicationDate').value = new Date().toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    // Radio visual selection
+    document.querySelectorAll('.course-radio input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.querySelectorAll('.course-radio').forEach(l => l.classList.remove('selected'));
+        radio.closest('.course-radio').classList.add('selected');
+      });
+    });
+
+    // Save form state to localStorage
+    document.querySelectorAll('#applyForm input, #applyForm select, #applyForm textarea').forEach(el => {
+      const saved = localStorage.getItem('stpvtc_apply_' + el.name);
+      if (saved && el.type !== 'checkbox' && el.type !== 'radio') el.value = saved;
+      el.addEventListener('input', () => localStorage.setItem('stpvtc_apply_' + el.name, el.value));
+    });
+  });
+
+  function nextStep(n) {
+    if (!validateStep(currentStep)) return;
+    document.getElementById('step-' + currentStep).classList.remove('active');
+    document.getElementById('ind-' + currentStep).classList.remove('active');
+    document.getElementById('ind-' + currentStep).classList.add('done');
+    currentStep = n;
+    document.getElementById('step-' + n).classList.add('active');
+    document.getElementById('ind-' + n).classList.add('active');
+    if (n === 4) buildReview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevStep(n) {
+    document.getElementById('step-' + currentStep).classList.remove('active');
+    document.getElementById('ind-' + currentStep).classList.remove('active');
+    currentStep = n;
+    document.getElementById('step-' + n).classList.add('active');
+    document.getElementById('ind-' + n).classList.remove('done');
+    document.getElementById('ind-' + n).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function validateStep(step) {
+    const stepEl = document.getElementById('step-' + step);
+    const required = stepEl.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      el.style.borderColor = '';
+      if (!el.value.trim() || (el.type === 'radio' && !stepEl.querySelector('input[name="' + el.name + '"]:checked')) || (el.type === 'checkbox' && !el.checked)) {
+        if (el.type !== 'radio' && el.type !== 'checkbox') el.style.borderColor = 'var(--crimson)';
+        valid = false;
+      }
+    });
+    if (!valid) showToast('Please fill in all required fields.', 'error');
+    return valid;
+  }
+
+  function buildReview() {
+    const fd = new FormData(document.getElementById('applyForm'));
+    const rows = [
+      ['Programme', fd.get('selected_programme')],
+      ['Intake', fd.get('preferred_intake')],
+      ['Study Mode', fd.get('study_mode')],
+      ['Name', (fd.get('first_name') || '') + ' ' + (fd.get('last_name') || '')],
+      ['Email', fd.get('email')],
+      ['Phone', fd.get('phone')],
+      ['Location', fd.get('location')],
+      ['Education', fd.get('highest_education')],
+      ['Computer Experience', fd.get('computer_experience')],
+    ];
+    document.getElementById('reviewSummary').innerHTML = rows.filter(r => r[1]).map(r => `
+      <div style="display:flex;gap:16px;padding:10px 0;border-bottom:1px solid var(--border);">
+        <span style="font-size:0.82rem;font-weight:600;color:var(--text-muted);min-width:160px;">${r[0]}</span>
+        <span style="font-size:0.9rem;color:var(--navy);font-weight:500;">${r[1]}</span>
+      </div>`).join('');
+  }
+
+  document.getElementById('applyForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateStep(4)) return;
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+    try {
+      await emailjs.sendForm('service_yly3e4r', 'template_18hmjur', e.target);
+      document.getElementById('applyForm').style.display = 'none';
+      document.querySelector('.steps-nav').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+      // Clear saved form data
+      document.querySelectorAll('#applyForm input, #applyForm select, #applyForm textarea').forEach(el => {
+        localStorage.removeItem('stpvtc_apply_' + el.name);
+      });
+    } catch (err) {
+      showToast('Submission failed. Please call us directly on 0708 599 134.', 'error');
+      btn.textContent = 'Submit Application';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

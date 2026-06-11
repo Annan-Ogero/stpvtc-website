@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Course details at St. Paul's Victorious Training College, Kisumu.">
+  <meta name="robots" content="index, follow">
+  <title>Course Detail | St. Paul's Victorious Training College</title>
+  <link rel="icon" type="image/png" href="../images/badge.png">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .detail-hero { background: var(--navy); padding: 120px 0 64px; }
+    .detail-hero__inner { display: grid; grid-template-columns: 1fr 360px; gap: 64px; align-items: start; }
+    .detail-hero__tag { margin-bottom: 16px; }
+    .detail-hero__title { font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 800; color: var(--white); margin-bottom: 16px; line-height: 1.15; }
+    .detail-hero__desc { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 28px; }
+    .detail-hero__meta { display: flex; flex-wrap: wrap; gap: 20px; }
+    .detail-meta-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+    .detail-meta-item svg { stroke: var(--gold); }
+    .detail-card { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: 0 24px 60px rgba(0,0,0,0.2); position: sticky; top: 100px; }
+    .detail-card__price { font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); margin-bottom: 4px; }
+    .detail-card__tagline { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 24px; }
+    .detail-card__list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .detail-card__list-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--text); }
+    .detail-card__list-item svg { stroke: var(--green); flex-shrink: 0; }
+    .tab-nav { display: flex; border-bottom: 2px solid var(--border); gap: 0; margin-bottom: 40px; }
+    .tab-btn { padding: 16px 24px; font-size: 0.92rem; font-weight: 600; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: var(--transition); cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; }
+    .tab-btn.active { color: var(--green); border-bottom-color: var(--green); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .curriculum-week { padding: 20px; border: 1.5px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; }
+    .curriculum-week__header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .curriculum-week__num { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; background: var(--navy); color: var(--white); padding: 3px 10px; border-radius: 12px; }
+    .curriculum-week__title { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .curriculum-week__topics { display: flex; flex-wrap: wrap; gap: 8px; }
+    .topic-chip { font-size: 0.78rem; background: var(--off-white); color: var(--text-muted); padding: 4px 12px; border-radius: 12px; }
+    .outcome-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .outcome-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: var(--off-white); border-radius: var(--radius); }
+    .outcome-item svg { stroke: var(--green); flex-shrink: 0; margin-top: 1px; }
+    .outcome-item p { font-size: 0.9rem; color: var(--text); line-height: 1.55; }
+    @media(max-width:1024px){ .detail-hero__inner{grid-template-columns:1fr;} .detail-card{position:static;} .outcome-list{grid-template-columns:1fr;} }
+    @media(max-width:768px){ .tab-btn{padding:12px 14px;font-size:0.82rem;} }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div id="courseContent">
+  <!-- Filled by JS below -->
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/global.js"></script>
+<script>
+const COURSES = {
+  'ict-packages': {
+    tag: 'Foundation Programme',
+    tagClass: 'card__tag--green',
+    title: 'ICT Packages Certificate',
+    desc: 'The essential digital literacy programme. Master Microsoft Office, internet skills, PC maintenance and more — 17 modules covering everything every Kenyan employer expects.',
+    duration: '3 – 6 Months',
+    mode: 'Full-Time or Part-Time',
+    cert: 'Certificate of Completion',
+    prereq: 'No prerequisites — beginners welcome',
+    curriculum: [
+      { week: 'Module 01', title: 'Introduction to Computers', topics: ['Hardware components','Software types','Operating systems','Computer care'] },
+      { week: 'Module 02', title: 'Windows OS', topics: ['File management','Desktop navigation','Control Panel','Shortcuts'] },
+      { week: 'Module 03', title: 'Keyboarding', topics: ['Home row technique','Touch typing','Speed drills','Accuracy improvement'] },
+      { week: 'Module 04', title: 'Microsoft Word', topics: ['Formatting','Mail merge','Tables','Page layout','Templates'] },
+      { week: 'Module 05', title: 'Microsoft Excel', topics: ['Formulas','Functions','Charts','Data sorting','Pivot tables'] },
+      { week: 'Module 06', title: 'Microsoft Access', topics: ['Database design','Tables','Queries','Forms','Reports'] },
+      { week: 'Module 07', title: 'Microsoft PowerPoint', topics: ['Slide design','Animations','Transitions','Presenter view'] },
+      { week: 'Module 08', title: 'Microsoft Publisher', topics: ['Brochures','Flyers','Newsletters','Printing'] },
+      { week: 'Module 09', title: 'Graphic Design Basics', topics: ['Design principles','Colour theory','Digital tools','Layouts'] },
+      { week: 'Module 10', title: 'Social Media & Digital Skills', topics: ['Platform best practices','Digital safety','Personal branding','Online etiquette'] },
+      { week: 'Module 11', title: 'Internet & Emailing', topics: ['Professional email','Browsing','Cloud storage','Online research'] },
+      { week: 'Module 12', title: 'PC Troubleshooting', topics: ['Common faults','Boot issues','Driver problems','Error messages'] },
+      { week: 'Module 13', title: 'Basic Computer Maintenance', topics: ['Hardware cleaning','Software updates','Backups','Virus protection'] },
+      { week: 'Module 14', title: 'Document Formatting & Scanning', topics: ['Print settings','Scanner operation','PDF creation','Photocopying'] },
+      { week: 'Module 15', title: 'Software Installation', topics: ['Installing apps','Uninstalling','Updates','Licensing basics'] },
+    ],
+    outcomes: [
+      'Use Microsoft Word, Excel, PowerPoint, Access and Publisher confidently',
+      'Manage files, folders and operating system settings',
+      'Compose and send professional emails',
+      'Troubleshoot common PC problems without external help',
+      'Design simple publications and presentations',
+      'Operate printers, scanners and photocopiers',
+      'Stay safe online and manage your digital footprint',
+      'Meet the computer literacy requirements of any Kenyan employer',
+    ]
+  },
+  'frontend-dev': {
+    tag: 'New Programme — July 2025',
+    tagClass: 'card__tag--gold',
+    title: 'Frontend Web Development Foundation',
+    desc: 'A 3-month intensive designed for high school graduates and gap year students preparing for university IT paths. Build real websites, learn JavaScript and deploy a live portfolio.',
+    duration: '3 Months',
+    mode: 'Full-Time or Part-Time',
+    cert: 'Certificate of Completion',
+    prereq: 'ICT Packages Certificate (or equivalent)',
+    curriculum: [
+      { week: 'Week 01', title: 'Web Fundamentals & HTML5 Semantics', topics: ['How the web works','HTML structure','Semantic tags','Links & images','Forms'] },
+      { week: 'Week 02', title: 'CSS3 Foundations', topics: ['Selectors','Colours & typography','Box model','Classes & IDs','Specificity'] },
+      { week: 'Week 03', title: 'Advanced Layouts', topics: ['CSS Flexbox','CSS Grid','Positioning','Stacking contexts'] },
+      { week: 'Week 04', title: 'Responsive Design', topics: ['Media queries','Mobile-first','Viewport units','Fluid images','Testing'] },
+      { week: 'Week 05', title: 'JavaScript Fundamentals', topics: ['Variables','Data types','Operators','Console debugging'] },
+      { week: 'Week 06', title: 'Control Flow & Loops', topics: ['If/else','Switch','For loops','While loops','Logic problems'] },
+      { week: 'Week 07', title: 'Data Structures & Functions', topics: ['Arrays','Objects','Functions','Scope','Arrow functions'] },
+      { week: 'Week 08', title: 'The DOM', topics: ['Query selectors','Event listeners','Manipulating HTML','Forms in JS','Validation'] },
+      { week: 'Week 09', title: 'Command Line Interface', topics: ['Terminal basics','File navigation','Running scripts','npm intro'] },
+      { week: 'Week 10', title: 'Git & GitHub', topics: ['Version control concepts','git init / add / commit','Branching','GitHub repos','Pull requests'] },
+      { week: 'Week 11', title: 'Capstone Project Development', topics: ['Multi-page site planning','Design systems','Code review','Debugging'] },
+      { week: 'Week 12', title: 'Deployment & Presentation', topics: ['GitHub Pages','Custom domains','Portfolio review','Showcase day'] },
+    ],
+    outcomes: [
+      'Build fully responsive websites for desktop and mobile from scratch',
+      'Write clean, functional JavaScript to add interactivity',
+      'Use Git and GitHub for version control and collaboration',
+      'Deploy a live portfolio website accessible anywhere in the world',
+      'Understand how the internet, browsers and servers work',
+      'Read and debug HTML, CSS and JavaScript code confidently',
+      'Enter a CS or IT degree with a significant head start over classmates',
+      'Show employers a real portfolio of completed projects',
+    ]
+  }
+};
+
+function renderCourse() {
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get('course') || 'ict-packages';
+  const c = COURSES[key] || COURSES['ict-packages'];
+
+  document.title = c.title + ' | St. Paul\'s Victorious Training College';
+
+  const curriculumHTML = c.curriculum.map(w => `
+    <div class="curriculum-week">
+      <div class="curriculum-week__header">
+        <span class="curriculum-week__num">${w.week}</span>
+        <span class="curriculum-week__title">${w.title}</span>
+      </div>
+      <div class="curriculum-week__topics">
+        ${w.topics.map(t => `<span class="topic-chip">${t}</span>`).join('')}
+      </div>
+    </div>`).join('');
+
+  const outcomesHTML = c.outcomes.map(o => `
+    <div class="outcome-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+      <p>${o}</p>
+    </div>`).join('');
+
+  document.getElementById('courseContent').innerHTML = `
+    <header class="detail-hero">
+      <div class="container">
+        <div class="detail-hero__inner">
+          <div>
+            <span class="card__tag ${c.tagClass} detail-hero__tag">${c.tag}</span>
+            <h1 class="detail-hero__title">${c.title}</h1>
+            <p class="detail-hero__desc">${c.desc}</p>
+            <div class="detail-hero__meta">
+              <div class="detail-meta-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${c.duration}</div>
+              <div class="detail-meta-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${c.mode}</div>
+              <div class="detail-meta-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>${c.cert}</div>
+            </div>
+            <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-top:24px;justify-content:flex-start;">
+              <a href="../index.html">Home</a><span>/</span><a href="courses.html">Courses</a><span>/</span><span aria-current="page">${c.title}</span>
+            </nav>
+          </div>
+          <div class="detail-card">
+            <p class="detail-card__price">Contact us for current fees</p>
+            <p class="detail-card__tagline">Flexible payment plans available</p>
+            <div class="detail-card__list">
+              <div class="detail-card__list-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Duration: ${c.duration}</div>
+              <div class="detail-card__list-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>${c.mode}</div>
+              <div class="detail-card__list-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>${c.cert}</div>
+              <div class="detail-card__list-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Prerequisite: ${c.prereq}</div>
+            </div>
+            <a href="apply.html?course=${key}" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;">Apply Now</a>
+            <a href="contact.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Ask a Question</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="section">
+      <div class="container">
+        <div class="tab-nav" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-curriculum" onclick="switchTab(this,'tab-curriculum')">Curriculum</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-outcomes" onclick="switchTab(this,'tab-outcomes')">What You Will Learn</button>
+        </div>
+        <div id="tab-curriculum" class="tab-panel active" role="tabpanel">${curriculumHTML}</div>
+        <div id="tab-outcomes" class="tab-panel" role="tabpanel"><div class="outcome-list">${outcomesHTML}</div></div>
+      </div>
+    </main>`;
+}
+
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  document.getElementById(panelId).classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', renderCourse);
+</script>
+</body>
+</html>

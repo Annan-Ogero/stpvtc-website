@@ -1,0 +1,102 @@
+# ST. PVTC — EmailJS Setup Guide
+# =================================
+
+## STEP 1 — Create an EmailJS Account
+1. Go to https://emailjs.com and sign up (free tier is enough to start)
+2. Click "Add New Service" → choose Gmail
+3. Connect your Gmail: st.paulvictoriousttc@gmail.com
+4. EmailJS will give you a SERVICE ID — copy it (looks like: service_xxxxxx)
+
+---
+
+## STEP 2 — Create the Application Template
+
+1. In EmailJS dashboard → "Email Templates" → "Create New Template"
+2. Set the Template Name: PVTC Application
+3. Set Subject line:
+   New Application: {{first_name}} {{last_name}} — {{selected_programme}}
+
+4. Click the </> (HTML) button to switch to HTML mode
+5. Delete everything in the editor
+6. Open the file: emailjs-templates/application-template.html
+7. Select all (Ctrl+A) and copy the entire contents
+8. Paste it into the EmailJS HTML editor
+9. Set "To Email": st.paulvictoriousttc@gmail.com
+10. Set "From Name": ST. PVTC Website
+11. Set "Reply To": {{email}}
+12. Click Save — EmailJS gives you a TEMPLATE ID (looks like: template_xxxxxx)
+13. Copy that Template ID
+
+---
+
+## STEP 3 — Create the Contact Template
+
+1. In EmailJS dashboard → "Email Templates" → "Create New Template"
+2. Set the Template Name: PVTC Contact
+3. Set Subject line:
+   New Enquiry: {{department}} — from {{from_name}}
+
+4. Click the </> (HTML) button to switch to HTML mode
+5. Delete everything in the editor
+6. Open the file: emailjs-templates/contact-template.html
+7. Select all (Ctrl+A) and copy the entire contents
+8. Paste it into the EmailJS HTML editor
+9. Set "To Email": st.paulvictoriousttc@gmail.com
+10. Set "From Name": ST. PVTC Website
+11. Set "Reply To": {{reply_to}}
+12. Click Save — copy the TEMPLATE ID
+
+---
+
+## STEP 4 — Get Your Public Key
+
+1. In EmailJS dashboard → top right → "Account"
+2. Under "API Keys" — copy your PUBLIC KEY (looks like: xxxxxxxxxxxxxxxxxxxxxx)
+
+---
+
+## STEP 5 — Update the Website Files
+
+Open pages/apply.html and replace these 3 placeholders:
+  YOUR_EMAILJS_PUBLIC_KEY  →  your actual public key
+  YOUR_SERVICE_ID          →  service_xxxxxx
+  YOUR_TEMPLATE_ID_APPLY   →  template_xxxxxx (Application template)
+
+Open pages/contact.html and replace these 3 placeholders:
+  YOUR_EMAILJS_PUBLIC_KEY  →  your actual public key
+  YOUR_SERVICE_ID          →  service_xxxxxx (same service)
+  YOUR_TEMPLATE_ID_CONTACT →  template_xxxxxx (Contact template)
+
+---
+
+## STEP 6 — Test Both Forms
+
+1. Open index.html in your browser (or the deployed Netlify URL)
+2. Go to the Apply page — fill in all 4 steps and submit
+3. Check st.paulvictoriousttc@gmail.com — you should receive
+   the professional application email within seconds
+4. Go to the Contact page — fill in and submit
+5. Check your Gmail again for the contact email
+
+If no email arrives:
+  - Check your EmailJS dashboard → "Email History" to see if it was sent
+  - Check Gmail spam folder
+  - Verify the public key, service ID and template IDs are correct
+
+---
+
+## TEMPLATE VARIABLES REFERENCE
+
+Application template uses:
+  {{selected_programme}}   {{preferred_intake}}    {{study_mode}}
+  {{first_name}}           {{last_name}}           {{email}}
+  {{phone}}                {{date_of_birth}}       {{gender}}
+  {{location}}             {{highest_education}}   {{last_school}}
+  {{computer_experience}}  {{how_heard}}           {{motivation}}
+  {{application_date}}
+
+Contact template uses:
+  {{from_name}}   {{phone}}   {{reply_to}}   {{department}}   {{message}}
+
+These match exactly the name="" attributes in the form fields
+in apply.html and contact.html — do not change them.
